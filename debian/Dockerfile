@@ -31,6 +31,7 @@ RUN echo "nameserver 8.8.8.8" | tee /etc/resolv.conf > /dev/null && \
     sed -e 's/\/var\/www:\/usr\/sbin\/nologin/\/var\/www:\/bin\/sh/' -i /etc/passwd && \
     echo 'shell /bin/bash' > ~/.screenrc
 
+COPY provision/supervisor.conf /etc/supervisor/conf.d/supervisor.conf
 COPY provision/entrypoint.sh /entrypoint.sh
 
 WORKDIR /srv
