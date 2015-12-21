@@ -1,7 +1,7 @@
 FROM amootassem/mysql-php-openresty
 MAINTAINER Alexandre MOOTASSEM <alexandre.mootassem@gmail.com>
 
-RUN apt-get -t jessie-backports install -y --fix-missing redis-server && \
+RUN apt-get clean && apt-get update -y && apt-get -t jessie-backports install -y --fix-missing redis-server && \
     \
     rm -rf /var/lib/apt/lists/* && \
     \
