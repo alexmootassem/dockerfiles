@@ -7,7 +7,7 @@ RUN pacman-key --populate archlinux \
 
 # Optimize mirror list
 RUN pacman -Syy \
-    && pacman --noconfirm -S reflector \
+    && pacman --noconfirm -S reflector openssl\
     && cp -vf /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup \
     && reflector -l 200 -p http --sort rate --save /etc/pacman.d/mirrorlist \
     && pacman --noconfirm -Rsn reflector python
