@@ -11,12 +11,12 @@
 FROM amootassem/archlinux-aur
 MAINTAINER Alexandre MOOTASSEM <alexandre.mootassem@gmail.com>
 
-RUN pacman -S --noconfirm --needed libxkbfile xorg-server xorg-xinit xorg-server-utils java-runtime libreoffice-fresh pulseaudio \
+RUN pacman -S --noconfirm --needed libxkbfile xorg-server xorg-xinit xorg-server-utils java-runtime pulseaudio gtk2 \
     && echo enable-shm=no >> /etc/pulse/client.conf
 
 USER docker
 
-RUN yaourt -Syyua --noconfirm --needed bitwig-studio-demo
+RUN yaourt -Syyua --noconfirm --needed libreoffice-fresh bitwig-studio-demo
 
 VOLUME ["/home/docker"]
 
